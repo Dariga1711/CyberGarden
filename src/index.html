@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 𖤣.𖥧.𖡼.⚘ </title>
+  <link rel="stylesheet" href="./style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+  <canvas class="webgl"></canvas>
+  <script type="module" src="./script.js"></script>
+
+  <header id="header">
+
+    <div id="headerButtons">
+
+      <a id="aboutButton">
+        <span class ="aboutTextWrapper">
+          <span class="aboutTextGroup">
+            <span>About</span>
+              <span>About</span>
+          </span>
+        </span>
+      </a>
+
+      <a id="instructionButton">
+        <span class ="instructionTextWrapper">
+          <span class="instructionTextGroup">
+            <span>Instruction</span>
+              <span>Instruction</span>
+          </span>
+        </span>
+
+      </a>
+
+      <button id="audioButton"> 📻 </button>
+
+    </div>
+   
+  
+    <div id="logo">𖤣.𖥧.𖡼.⚘</div>
+  
+    <div id="searchWrapper">
+      <div id="searchContainer">
+        <input type="text" id="keywordSearch" placeholder="Search by keyword..." />
+        <button id="searchButton">
+          <span class="btnTextWrapper">
+            <span class="btnTextGroup">
+              <span>Search</span>
+              <span>Search</span>
+            </span>
+          </span>
+        </button>
+        
+      </div>
+      <p id="searchMessage">No flowers found with that keyword.</p>
+      <div id="activeKeywords"></div>
+    </div>
+  </header>
+  
+
+
+  <div id="aboutPopup">
+    <div class="popup-content">
+
+     <div id="aboutPopupLeft">
+
+      <div id="cyberGarden"> 
+        <p id="aboutHeading">Our Cyber Garden 🌸<p>
+        <p id="p1">This is a communal digital space grown with care, curiosity and collaboration. Inspired by the early internet’s spirit, the garden invites you to contribute, reflect and explore at your own pace. </p>
+        <p id="p2">Here coding is soft and perfection isn’t a goal. The space encourages to share your interests and creativity. Plant any ideas or in-process work that you want to share with others!
+        </p>
+      </div>
+
+      <div id="plantSmth">
+        <p id="aboutHeading">Want to plant something? 🌱<p>
+        <p>You’re invited to share anything - projects, sketches, code snippets, experiments. Whether it’s a seed of an idea or a full blooming project, your contribution helps garden to grow!
+        </p>
+      </div>
+     </div>
+
+     <div id="aboutPopupRight">
+      <div id="feedback">
+        <p>If you want to add something to the garden</p>
+       </div>
+  
+       <div id="github">
+        <p>Here’s the Github link if you want to suggest any changes to the code</p>
+        <button onclick="window.open('https://cyberbug.glitch.me', '_blank')" id="githubButton">Github</button>
+       </div>
+  
+       <div id="suggestionsText">
+        <p>Or you can write any suggestion here!</p>
+        <div id="suggestions">
+          <input type="text" id="visitorSuggestions" placeholder="Type here!"  required >
+          <button id="sendButton"> Send!</button>
+        </div>
+       </div>
+
+     </div>
+
+    </div>
+  </div>
+
+
+
+
+  <div id="welcomePopup">
+    <div id="welcomeContent">
+
+     <div id="welcomeTop">
+      <p id="welcomep1">Click anywhere to enter</p>
+      <p id="welcomeHeading">How to engage with the space</p>
+     </div>
+
+     <div id="welcomeFlex">
+
+      <div id="welcomeFlexLeft">
+        <p id="welcomeHeading">Movement</p>
+        <p id="welcomeP">To move in the garden you would need to left click the mouse or trackpad, hold it and slide</p>
+        <img src="resources/movement.jpg">
+      </div>
+
+      <div id="welcomeFlexRight">
+        <p id="welcomeHeading" >Plant your project</p>
+        <p id="welcomeP">Press a “Would you like to plant a flower” button and submit details you want to share!</p>
+        <img src="resources/plant.jpg">
+      </div>
+
+     </div>
+
+
+    </div>
+  </div>
+  
+
+  <a id="aboutButton">
+    <span class ="aboutTextWrapper">
+      <span class="aboutTextGroup">
+        <span>About</span>
+          <span>About</span>
+      </span>
+    </span>
+  </a>
+
+  <button id="addFlowerButton" >
+    <span class ="addFlowerButtonTextWrapper">
+      <span class =" addFlowerButtonTextGroup">
+        <span>Would you like to plant a flower?</span>
+        <span>Would you like to plant a flower?</span>
+      </span>
+    </span>
+    </button>
+
+
+<div id="topTagsSidebar">
+  <h4>Added keywords</h4>
+  <div id="topTagsList"></div>
+</div>
+
+
+  <div class="container" >
+
+      <div id="containerTop">
+        <p id="projectName"></p>
+        <button id="closeInfo">Close</button>
+       
+
+      </div>
+
+      <div id="containerFlexBox">
+
+        <div id="containerLeft">
+          <p id="name"></p>
+          <p id="descriptionText"></p>
+          <div id="keywordsContainer"></div>
+        </div>
+        <div id="containerRight">
+          <img id="currentImage">
+        </div>
+      </div>
+
+      <div id="bottomContainer">
+
+        <a id="projectLink" target="_blank" href="#">Visit Project</a>
+      </div>
+  
+
+  </div>
+
+
+<!--Modal-->
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <form id="modalForm">
+        <div id="flexBox">
+          <div id="modalFormLeft">
+            <h2>Let's share your project!</h2>
+            <input type="text" id="flowerProjectInputName" placeholder="Project Name" required /><br /><br />
+            <input type="text" id="flowerInputName" placeholder="Contributor's name" /><br /><br />
+
+
+            <textarea id="flowerInputDescription" placeholder="Describe the project. What do you like about it? How does it make you feel?" ></textarea><br /><br />
+
+            <input type="url" id="flowerInputLink" placeholder="Share the link for us to see! with https://)"  /><br /><br />
+            <textarea id="flowerInputKeyword" placeholder="Write keywords using comma ',' " required></textarea><br /><br />
+
+          </div>
+
+          <div id = "modalFormRight">
+
+            <div id="imageContainer">
+
+              <p> Add the prettiest image! </p>
+              <input type="file" id="flowerInputImage" accept="image/*" required /><br /><br />
+
+            <img id="imagePreview" alt="Image preview"
+     style="display: none; margin-top: 1rem; max-width:60%; height: auto; border-radius:4px;" />
+     
+
+            </div>
+            
+            <!-- Flower types and colors-->
+      <label for="flowerType">flower</label>
+      <select id="flowerType"> 
+        <option value="apple">Apple</option>
+        <option value="lavender">Lavender</option>
+        <option value="lily">Lily</option>
+      </select>
+
+      <!-- <label for="flowerColor"></label> -->
+      <input type="color" id="flowerColor" value="#E8D9EF">
+
+          </div>
+          
+        </div>
+
+        <div id="buttonContainer">
+          <button type="submit" class="submit-btn">Submit</button>
+          <button type="button" class="close-btn" id="closeModal">Close</button>
+        </div>
+      </form>
+
+
+      
+
+      <script>
+        var modal = document.getElementById("modal");
+
+        AFRAME.registerComponent("modal", {
+          schema: {
+            target: {
+              type: "string"
+            },
+            url: {
+              type: "string"
+            },
+            alertString: {
+              type: "string"
+            },
+          },
+          init: function () {
+            // This is click to activate
+
+            this.el.addEventListener("click", () => {
+              alertString = this.data.alertString;
+              modal.classList.add("active");
+              var inner = modal.querySelector(`#${this.data.target}`);
+              inner.classList.add("active");
+              targetUrl = this.data.url;
+            });
+          },
+        });
+      </script>
+
+
+
+
+</body>
+
+</html>

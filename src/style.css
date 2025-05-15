@@ -1,0 +1,1074 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+    cursor: url("resources/cursor.png") 8 8, auto;
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+#header {
+  background-color: transparent;
+  padding: 20px 50px;
+  color: rgb(60, 60, 60);
+  position: relative;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* allows keywords to flow below */
+  gap: 1em;
+}
+
+#headerButtons{
+  display:flex;
+  gap:10px;
+}
+
+#aboutButton{
+  padding: 0px 30px;
+  font-size: 18px;
+  background-color: transparent;
+  color: rgb(60, 60, 60);
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.aboutTextWrapper {
+  height: 1em;
+  overflow: hidden;
+  display: block;
+  line-height: 1;
+}
+
+.aboutTextGroup {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  line-height: 1;
+}
+
+.aboutTextGroup span {
+  height: 1em;
+  line-height: 1;
+  display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    #aboutButton:hover .aboutTextGroup {
+      transform: translateY(-1em);
+    }
+  }
+}
+
+#instructionButton{
+  padding: 0px 30px;
+  font-size: 18px;
+  background-color: transparent;
+  color: rgb(60, 60, 60);
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.instructionTextWrapper {
+  height: 1em;
+  overflow: hidden;
+  display: block;
+  line-height: 1;
+}
+
+.instructionTextGroup {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  line-height: 1;
+}
+
+.instructionTextGroup span {
+  height: 1em;
+  line-height: 1;
+  display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    #instructionButton:hover .instructionTextGroup {
+      transform: translateY(-1em);
+    }
+  }
+}
+
+#audioButton{
+  padding: 2px 20px;
+  font-size: 18px;
+  background-color: transparent;
+  color: rgb(60, 60, 60);
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#audioButton.clicked {
+  background: #b0ade8;
+}
+
+#logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  color: rgb(60, 60, 60);
+  pointer-events: none; /* so it doesn't block interactions */
+}
+
+#aboutPopup {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;                  /* Flex layout to center */
+  justify-content: center;       /* Horizontal center */
+  align-items: center;           /* Vertical center */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+}
+
+
+.popup-content {
+  background: rgb(255, 248, 236, 0.8);
+  border-radius: 15px;
+  max-width: 60vw;
+  /* max-height: 80vh; */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display:flex;
+  padding:60px;
+  color: rgb(60, 60, 60);
+  
+}
+
+.popup-content p{
+  font-size: 18px;
+  max-width: 90%;
+}
+
+#aboutPopupLeft{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 70%;
+}
+
+#p1{
+  padding-bottom: 10px;
+}
+
+#p2{
+  padding-bottom: 20px;
+}
+
+#plantSmth{
+  align-self: flex-end;
+  max-width: 80%;
+}
+
+#aboutPopupRight{
+ 
+  display:flex;
+  flex-direction: column;
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #3c3c3c;
+  padding-left:20px;;
+  width: 30%;
+  text-align: center;
+}
+
+#aboutPopupRight p {
+text-align: center;
+
+}
+
+#feedback {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#feedback p{
+  font-size: 24px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#github{
+  display: flex;
+  flex-direction: column;
+  padding-top:30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  align-items: center;
+}
+
+#github p {
+  padding-bottom: 15px;
+}
+
+
+#githubButton{
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 5px;
+  background: transparent;
+  padding:3px 30px;
+  
+
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+#githubButton:hover{
+  background:#b0ade8;
+  color:#FFF8EC;
+}
+
+#aboutHeading {
+  font-size: 32px;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  padding-bottom: 15px;
+}
+
+
+#suggestionsText {
+  display: flex;
+  flex-direction: column;
+  padding-top:30px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom:10px;
+  align-items: center;
+  justify-content: center;
+}
+
+#suggestions {
+  display: flex;
+  justify-content: center; 
+  padding-top: 10px;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%; 
+}
+
+
+#visitorSuggestions {
+  border-top:transparent;
+  border-left:transparent;
+  border-right:transparent;
+  border-bottom: 1px solid rgb(60, 60, 60) ;
+  background: transparent;
+  max-width: 70%;
+
+  padding:5px 0px;
+  text-align: center;
+
+  font-family: "Cormorant Garamond", serif;
+font-optical-sizing: auto;
+font-weight: 300;
+font-style: normal;
+font-size: 14px;
+ 
+}
+
+#sendButton {
+  border: 1px solid rgb(60, 60, 60) ;
+  border-radius: 5px;
+  background: transparent;
+  padding:3px 7px;
+  max-width: 20%;
+  text-align: center;
+
+  font-family: "Cormorant Garamond", serif;
+font-optical-sizing: auto;
+font-weight: 300;
+font-style: normal;
+font-size: 14px;
+}
+
+#sendButton:hover{
+  background:#b0ade8;
+  color:#FFF8EC;
+}
+
+#welcomePopup {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10000;
+  cursor:pointer
+}
+
+#welcomeContent {
+  background: #FFF8EC;
+  padding: 15px;
+  border-radius: 10px;
+  width: 50vw;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding:50px;
+}
+
+#welcomeTop{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#welcomep1 {
+  font-size: 16px;
+}
+
+#welcomeHeading {
+  font-size: 42px;
+}
+
+#welcomeFlex{
+  display:flex;
+  flex-direction: row;
+  gap:20px;
+  padding-top:30px;
+}
+
+#welcomeFlexLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#welcomeFlexRight{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#welcomeHeading{
+  font-size: 32px;
+  padding-bottom:10px;
+}
+
+#welcomeP{
+  font-size: 18px;
+  max-width: 80%;
+}
+
+
+
+
+#searchWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3em;
+  max-width: 300px;
+}
+
+#searchContainer {
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border-radius: 5px;
+}
+
+#keywordSearch {
+  padding: 5px 25px;
+font-size: 1rem;
+border-top:transparent;
+border-left:transparent;
+border-right:transparent;
+border-bottom: 1px solid rgb(60, 60, 60);
+outline: none;
+width: 180px;
+background-color: transparent;
+
+font-family: "Cormorant Garamond", serif;
+font-optical-sizing: auto;
+font-weight: 300;
+font-style: normal;
+font-size: 18px;
+}
+
+#searchButton {
+  padding: 5px 30px;
+  font-size: 18px;
+  background-color: transparent;
+  color: rgb(60, 60, 60);
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btnTextWrapper {
+  height: 1em;
+  overflow: hidden;
+  display: block;
+  line-height: 1;
+}
+
+.btnTextGroup {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  line-height: 1;
+}
+
+.btnTextGroup span {
+  height: 1em;
+  line-height: 1;
+  display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    #searchButton:hover .btnTextGroup {
+      transform: translateY(-1em);
+    }
+  }
+}
+
+
+
+
+#searchMessage {
+  margin-left: 1em;
+  font-size: 0.9rem;
+  color: #333;
+  display: none;
+}
+
+#activeKeywords {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  margin-left: 1em;
+}
+
+
+
+#topTagsSidebar {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background:transparent;
+  padding: 20px;
+  border:rgb(60, 60, 60);
+  border-radius: 8px;
+  z-index: 9998;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  color: rgb(60, 60, 60);
+  max-width: 200px;
+  text-justify: right;
+  /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); */
+}
+
+#topTagsSidebar h4 {
+  text-align: center;
+}
+
+#topTagsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.top-tag-pill {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 40px;
+  padding: 5px 15px;
+  text-align: center;
+  transition: background 0.2s;
+  max-width: 100%;
+  white-space: normal ;
+  word-break: break-word ;
+}
+
+.top-tag-pill:hover {
+  background: #b0ade8;
+  color: white;
+}
+
+
+
+#modal {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    z-index: 9999;
+    display: none;
+    cursor: pointer;
+    border-radius:20px;
+    background: rgba(255, 248, 236, 0.4);
+    backdrop-filter: blur(10px);        
+  -webkit-backdrop-filter: blur(10px);
+    width: 700px;
+   
+    /* background-image: url("https://cdn.glitch.global/9522b44c-1ec3-4266-9636-0ddd02c863f5/form-06.jpg?v=1744576010446"); */
+
+    /* background-image: url("resources/cloth.jpg");
+    background-image: no-repeat;
+    background-image: center;
+    background-size: cover; */
+  }
+
+
+  
+  #modal.active {
+    display: flex;
+  }
+  
+  #modalForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  #flexBox {
+
+    text-align: center;
+    color: rgb(60, 60, 60);
+    display: flex;
+    justify-content: center;
+    align-items: top;
+  }
+
+    
+  .modal-content h2 {
+    font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+    padding: 0px;
+    font-size: 30px;
+    text-align: left;
+    color: rgb(69, 69, 69); 
+   /* background: linear-gradient(to bottom, white 40%, gray); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent;
+   -webkit-text-stroke: 0.5px black; */
+  }
+  
+  #flowerProjectInputName{
+    background:transparent;
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 1px solid rgb(60, 60, 60);
+    padding: 5px 0px;
+    width:90%;
+    padding-top: 20px;
+    text-align: center;
+    margin:0%;
+  }
+
+  #flowerInputName {
+    background:transparent;
+    /* border-style: solid; */
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 1px solid rgb(60, 60, 60);
+    padding: 5px 0px;
+    width:90%;
+    text-align: center;
+    margin:0%;
+  }
+  
+  #flowerInputDescription {
+    background:transparent;
+    /* border-style: solid; */
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 1px solid rgb(60, 60, 60);
+    /* border-radius: 2px; */
+    padding: 5px 0px;
+    width:90%;
+    text-align: center;    
+  }
+  
+  #flowerInputLink {
+    
+    background:transparent;
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 1px solid rgb(60, 60, 60);
+    padding: 5px 0px;
+    width:90%;
+    text-align: center;
+  }
+  
+
+  #flowerInputKeyword {
+    background:transparent;
+    /* border-style: solid; */
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 1px solid rgb(60, 60, 60);
+    padding: 5px 0px;
+    width:90%;
+    text-align: center;
+    
+  }
+
+  #modalFormRight {
+    position: relative;
+    /* height: 200px;       whatever max height you like */
+    /* overflow: hidden; */
+    text-align:left;
+    margin-left:20px;
+    max-width: 50%;
+  }
+
+  #modalFormLeft {
+    max-width: 50%;
+   align-items: center;
+   
+  }
+
+  #imagePreview {
+    display: block;
+    max-width: 100%;   
+    max-height: 40%;    
+    height: auto;        
+    margin: 0 auto; 
+    
+    padding:0;   
+    margin-bottom:20px;    
+  }
+
+  #flowerInputImage {
+    margin-top:20px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+  }
+
+  #imageContainer {
+    background:transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px 25px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+
+  }  
+  
+ 
+  #flowerColor {
+    -webkit-appearance: none;  /* remove default styling */
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #3c3c3c;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    float: right;
+  }
+  
+  #flowerColor::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  #flowerColor::-webkit-color-swatch {
+    border-radius: 50%;
+  }
+  
+  
+  
+  .close-btn {
+    margin: 5px;
+    display: inline-block;
+    padding: 5px 50px;
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    /* text-decoration: none; */
+    border: 1px solid rgb(60, 60, 60);
+    background: transparent;
+    border-radius: 5px;
+    color:rgb(60, 60, 60);
+    
+    /* outline: none; */
+    /* color: white;
+    background-image: linear-gradient(white, grey);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px grey; */
+  }
+  
+  .submit-btn {
+    margin: 5px;
+    display: inline-block;
+    padding: 5px 50px;
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    /* text-decoration: none; */
+    border: 1px solid rgb(60, 60, 60);
+    background: transparent;
+    border-radius: 5px;
+    color:rgb(60, 60, 60);
+  }
+  
+  #buttonContainer {
+    margin-top: 20px;
+  }
+  
+  .submit-btn:active {
+    background-color: transparent;
+    box-shadow: 0 5px grey;
+    transform: translateY(4px);
+  }
+  
+  .close-btn:active {
+    background-color: transparent;
+    box-shadow: 0 5px grey;
+    transform: translateY(4px);
+  }
+  
+
+
+#addFlowerButton {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 24px;
+
+  /* border: 1px solid rgb(60, 60, 60); */
+  border:transparent;
+  background: rgba(255, 248, 236, 0.9);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  padding: 15px 50px;
+  cursor: pointer;
+}
+
+
+.addFlowerButtonTextWrapper {
+  height: 1em;
+  overflow: hidden;
+  display: block;
+  line-height: 1;
+}
+
+.addFlowerButtonTextGroup {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+  line-height: 1;
+}
+
+.addFlowerButtonTextGroup span {
+  height: 1em;
+  line-height: 1;
+  display: block;
+}
+
+/* Adjust the hover to slightly more than exactly 1em to prevent showing partial letters */
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    #addFlowerButton:hover .addFlowerButtonTextGroup {
+      transform: translateY(-1.09em); /* Slightly increase this value */
+    }
+  }
+}
+
+
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    z-index: 9999;
+    display: none;
+    cursor: pointer;
+    border-radius:5px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 700px;
+    color:rgba(117, 143, 211);
+    
+  }
+
+  #containerFlexBox {
+    display: flex;
+    justify-content: space-between; /* or space-around / space-evenly */
+    align-items: flex-start; /* corrected from 'top' */
+    gap: 20px; /* optional spacing between left and right */
+    padding-top:20px;
+    
+    
+  }
+  
+  #containerLeft, #containerRight {
+    flex: 1; /* equal width */
+    max-width: 50%;
+    overflow-wrap: break-word;
+    
+  }
+  
+  
+
+  #containerRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #containerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 10px;
+    margin-bottom: 20px;
+    
+  }
+  #projectName{
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+      padding: 0px;
+      font-size: 50px;
+  }
+  #name{
+    background:transparent;
+    /* border-style: solid; */
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 0.7px solid rgb(60, 60, 60);
+    border-top: 0.7px solid rgb(60, 60, 60);
+    /* border-radius: 2px; */
+    padding: 7px 25px;
+    color:rgba(60,60,60);
+    
+
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+  }
+
+  #descriptionText{
+    background:transparent;
+    /* border-style: solid; */
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-bottom: 0.7px solid rgb(60, 60, 60);
+    /* border-radius: 2px; */
+    padding: 7px 25px;
+    margin-top:10px;
+    color:rgba(60,60,60);
+
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+  }
+
+  #keywordsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+    
+    
+  }
+  
+  .keyword-box {
+    display: inline-block;
+    padding: 3px 25px;
+    background-color: transparent;
+    border: 1px solid rgba(117, 143, 211);
+    border-radius: 20px;
+    border-bottom-width:80%;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+    color:rgba(60, 60, 60);
+   
+  }
+
+  /* #bottomContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  } */
+
+  #projectLink {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid rgb(60, 60, 60);
+    padding: 5px 40px;
+    text-decoration: none; /* optional: removes underline */
+    font-size: 16px; /* or whatever suits your design */
+    line-height: 1.2; /* controls vertical spacing */
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color:rgb(60, 60, 60);
+    border-radius: 5px;
+    
+  
+  }
+
+  #containerRight{
+    padding:0px;
+    margin: 0 ; 
+  }
+  #currentImage {
+    display: block;
+    max-width: 100%;   
+    max-height: 40%;    
+    height: auto;        
+    margin: 0 ; 
+    padding:0;   
+    margin-bottom:20px; 
+    border-radius: 10px; }
+
+    #closeInfo{
+    margin: 5px;
+    margin-top:30px;
+    display: inline-block;
+    padding: 4px 50px;
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    /* text-decoration: none; */
+    border: 1px solid rgb(60, 60, 60);
+    background: transparent;
+    border-radius: 5px;
+    color:rgb(60, 60, 60);
+
+    }
+
+
+    
