@@ -604,238 +604,209 @@ button.addEventListener('click', () => {
 })
 
 
+// let stats
 
-//Small flowers
-// const chamomileGeometry = new THREE.SphereGeometry(0.05,32, 32)
-// const chamomileMaterial = new THREE.MeshStandardMaterial({
-//     color:'pink'
-// })
+// const api = {
 
-// const chamomiles = new THREE.Group()
-// scene.add(chamomiles)
+//   count: 20000,
+//   distribution: 'random',
+//   resample: resample,
+//   surfaceColor: 0xFFF784,
+//   backgroundColor: 0xE39469,
 
-// for (let i = 0; i < 60; i++){
+// };
 
-//     const angle = Math.random() * Math.PI * 2
-//     const radius = 3 + Math.random() * 10
-//     const x = Math.sin(angle) * radius
-//     const z = Math.cos(angle) * radius
+// let stemMesh, blossomMesh;
+// let stemGeometry, blossomGeometry;
+// let stemMaterial, blossomMaterial;
 
-//     const chamomile = new THREE.Mesh(chamomileGeometry, chamomileMaterial)
-//     chamomile.position.x= x
-//     chamomile.position.y = (Math.random() * 0.4) - 0.1
-//     chamomile.position.z= z
+// const count = api.count;
+// const ages = new Float32Array( count );
+// const scales = new Float32Array( count );
+// const dummy = new THREE.Object3D();
 
-//     chamomile.rotation.x = (Math.random()- 0.5) * 0.4
-//     chamomile.rotation.y = (Math.random()- 0.5) * 0.4
-//     chamomile.rotation.z = (Math.random()- 0.5) * 0.4
+// const _normal = new THREE.Vector3();
+// const _scale = new THREE.Vector3();
 
-//     chamomiles.add(chamomile)
-// }
+// let surfaceGeometry = new THREE.BoxGeometry( 10, 10, 10 ).toNonIndexed();
+// // const surfaceGeometry = new THREE.TorusKnotGeometry( 10, 3, 100, 16 ).toNonIndexed();
+// const surfaceMaterial = new THREE.MeshLambertMaterial( { color: api.surfaceColor, wireframe: false, transparent:true, opacity: 0 } );
+// const surface = new THREE.Mesh( surfaceGeometry, surfaceMaterial );
 
-let stats
+// 	// Source: https://gist.github.com/gre/1650294
+//   const easeOutCubic = function ( t ) {
 
-const api = {
+//     return ( -- t ) * t * t + 1;
 
-  count: 20000,
-  distribution: 'random',
-  resample: resample,
-  surfaceColor: 0xFFF784,
-  backgroundColor: 0xE39469,
+//   };
 
-};
+//   // Scaling curve causes particles to grow quickly, ease gradually into full scale, then
+//   // disappear quickly. More of the particle's lifetime is spent around full scale.
+//   const scaleCurve = function ( t ) {
 
-let stemMesh, blossomMesh;
-let stemGeometry, blossomGeometry;
-let stemMaterial, blossomMaterial;
+//     return Math.abs( easeOutCubic( ( t > 0.5 ? 1 - t : t ) * 2 ) );
 
-const count = api.count;
-const ages = new Float32Array( count );
-const scales = new Float32Array( count );
-const dummy = new THREE.Object3D();
-
-const _normal = new THREE.Vector3();
-const _scale = new THREE.Vector3();
-
-let surfaceGeometry = new THREE.BoxGeometry( 10, 10, 10 ).toNonIndexed();
-// const surfaceGeometry = new THREE.TorusKnotGeometry( 10, 3, 100, 16 ).toNonIndexed();
-const surfaceMaterial = new THREE.MeshLambertMaterial( { color: api.surfaceColor, wireframe: false, transparent:true, opacity: 0 } );
-const surface = new THREE.Mesh( surfaceGeometry, surfaceMaterial );
-
-	// Source: https://gist.github.com/gre/1650294
-  const easeOutCubic = function ( t ) {
-
-    return ( -- t ) * t * t + 1;
-
-  };
-
-  // Scaling curve causes particles to grow quickly, ease gradually into full scale, then
-  // disappear quickly. More of the particle's lifetime is spent around full scale.
-  const scaleCurve = function ( t ) {
-
-    return Math.abs( easeOutCubic( ( t > 0.5 ? 1 - t : t ) * 2 ) );
-
-  };
+//   };
 
   
 
-  gltfLoader.load('./resources/daisy.glb', function (gltf) {
-    gltf.scene.updateMatrixWorld(true);
+//   gltfLoader.load('./resources/daisy.glb', function (gltf) {
+//     gltf.scene.updateMatrixWorld(true);
   
-    const _stemMesh = gltf.scene.getObjectByName('Stem');
-    const _blossomMesh = gltf.scene.getObjectByName('Blossom');
+//     const _stemMesh = gltf.scene.getObjectByName('Stem');
+//     const _blossomMesh = gltf.scene.getObjectByName('Blossom');
   
-    if (!_stemMesh || !_blossomMesh) {
-      console.error('Stem or Blossom not found in GLB');
-      return;
-    }
+//     if (!_stemMesh || !_blossomMesh) {
+//       console.error('Stem or Blossom not found in GLB');
+//       return;
+//     }
   
-    // Clone and bake world transforms
-    stemGeometry = _stemMesh.geometry.clone();
-    stemGeometry.applyMatrix4(_stemMesh.matrixWorld);
+//     // Clone and bake world transforms
+//     stemGeometry = _stemMesh.geometry.clone();
+//     stemGeometry.applyMatrix4(_stemMesh.matrixWorld);
   
-    blossomGeometry = _blossomMesh.geometry.clone();
-    blossomGeometry.applyMatrix4(_blossomMesh.matrixWorld);
+//     blossomGeometry = _blossomMesh.geometry.clone();
+//     blossomGeometry.applyMatrix4(_blossomMesh.matrixWorld);
   
-    // Apply uniform scale and rotation (flip Z-up from Blender to Y-up in Three.js)
-    const DEFAULT_SCALE = 0.1;
-    const transform = new THREE.Matrix4()
-      .makeRotationX(Math.PI *2)  // 
-      .multiply(new THREE.Matrix4().makeScale(DEFAULT_SCALE, DEFAULT_SCALE, DEFAULT_SCALE));
+//     // Apply uniform scale and rotation (flip Z-up from Blender to Y-up in Three.js)
+//     const DEFAULT_SCALE = 0.1;
+//     const transform = new THREE.Matrix4()
+//       .makeRotationX(Math.PI *2)  // 
+//       .multiply(new THREE.Matrix4().makeScale(DEFAULT_SCALE, DEFAULT_SCALE, DEFAULT_SCALE));
   
-    stemGeometry.applyMatrix4(transform);
-    blossomGeometry.applyMatrix4(transform);
+//     stemGeometry.applyMatrix4(transform);
+//     blossomGeometry.applyMatrix4(transform);
   
-    stemMaterial = _stemMesh.material;
-    blossomMaterial = _blossomMesh.material;
+//     stemMaterial = _stemMesh.material;
+//     blossomMaterial = _blossomMesh.material;
 
-blossomMaterial = blossomMaterial.clone();
-blossomMaterial.metalness = 0.7;
-blossomMaterial.roughness = 0.1;
-blossomMaterial.envMapIntensity = 0.9;
+// blossomMaterial = blossomMaterial.clone();
+// blossomMaterial.metalness = 0.7;
+// blossomMaterial.roughness = 0.1;
+// blossomMaterial.envMapIntensity = 0.9;
 
     
   
-    stemMesh = new THREE.InstancedMesh(stemGeometry, stemMaterial, count);
-    blossomMesh = new THREE.InstancedMesh(blossomGeometry, blossomMaterial, count);
+//     stemMesh = new THREE.InstancedMesh(stemGeometry, stemMaterial, count);
+//     blossomMesh = new THREE.InstancedMesh(blossomGeometry, blossomMaterial, count);
   
-    const color = new THREE.Color();
-    const blossomPalette = [0xf9d3e0, 0xd4e3fe, 0xf8fadb, 0xffe4a8, 0xffc4ab];
+//     const color = new THREE.Color();
+//     const blossomPalette = [0xf9d3e0, 0xd4e3fe, 0xf8fadb, 0xffe4a8, 0xffc4ab];
   
-    for (let i = 0; i < count; i++) {
-      color.setHex(blossomPalette[Math.floor(Math.random() * blossomPalette.length)]);
-      blossomMesh.setColorAt(i, color);
-    }
+//     for (let i = 0; i < count; i++) {
+//       color.setHex(blossomPalette[Math.floor(Math.random() * blossomPalette.length)]);
+//       blossomMesh.setColorAt(i, color);
+//     }
   
-    stemMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
-    blossomMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+//     stemMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+//     blossomMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
   
-    // resample();
-    init();
-  });
+//     resample();
+//     init();
+//   });
   
   
 
-  function init() {
-    //
+//   function init() {
+//     //
 
-    scene.add( stemMesh );
-    scene.add( blossomMesh );
+//     scene.add( stemMesh );
+//     scene.add( blossomMesh );
 
-    scene.add( surface );
+//     scene.add( surface );
 
-    //
-
-
-    gui.add( api, 'count', 0, count ).onChange( function () {
-
-      stemMesh.count = api.count;
-      blossomMesh.count = api.count;
-
-    } );
-    gui.add( api, 'distribution' ).options( [ 'random', 'weighted' ] ).onChange( resample );
-    gui.add( api, 'resample' );
+//     //
 
 
+//     gui.add( api, 'count', 0, count ).onChange( function () {
 
-    //
+//       stemMesh.count = api.count;
+//       blossomMesh.count = api.count;
 
-    stats = new Stats();
-    document.body.appendChild( stats.dom );
+//     } );
+//     gui.add( api, 'distribution' ).options( [ 'random', 'weighted' ] ).onChange( resample );
+//     gui.add( api, 'resample' );
 
-    //
+
+
+//     //
+
+//     stats = new Stats();
+//     document.body.appendChild( stats.dom );
+
+//     //
 
    
 
-  }
+//   }
 
-  function resample() {
+//   function resample() {
 
-    for ( let i = 0; i < count; i ++ ) {
+//     for ( let i = 0; i < count; i ++ ) {
 
-      ages[ i ] = Math.random();
-      scales[ i ] = scaleCurve( ages[ i ] );
+//       ages[ i ] = Math.random();
+//       scales[ i ] = scaleCurve( ages[ i ] );
 
-      resampleParticle( i );
-    }
+//       resampleParticle( i );
+//     }
 
-    stemMesh.instanceMatrix.needsUpdate = true;
-    blossomMesh.instanceMatrix.needsUpdate = true;
+//     stemMesh.instanceMatrix.needsUpdate = true;
+//     blossomMesh.instanceMatrix.needsUpdate = true;
 
-  }
+//   }
 
-  function resampleParticle( i ) {
+//   function resampleParticle( i ) {
 
     
-    var x = (Math.random() * 2 - 1) * 100;
-    var z = (Math.random() * 2 - 1) * 100;
-    var position = new THREE.Vector3(x, 0, z);
+//     var x = (Math.random() * 2 - 1) * 100;
+//     var z = (Math.random() * 2 - 1) * 100;
+//     var position = new THREE.Vector3(x, 0, z);
 
-    var normal = position.clone();
+//     var normal = position.clone();
     
-    normal.add( new THREE.Vector3((Math.random() * 2) - 1, 1, (Math.random() * 2) - 1));
+//     normal.add( new THREE.Vector3((Math.random() * 2) - 1, 1, (Math.random() * 2) - 1));
 
-    dummy.position.copy( position );
+//     dummy.position.copy( position );
     
-    dummy.rotation.set(0, 0, 0);
-    dummy.updateMatrix();
+//     dummy.rotation.set(0, 0, 0);
+//     dummy.updateMatrix();
 
-    stemMesh.setMatrixAt( i, dummy.matrix );
-    blossomMesh.setMatrixAt( i, dummy.matrix );
+//     stemMesh.setMatrixAt( i, dummy.matrix );
+//     blossomMesh.setMatrixAt( i, dummy.matrix );
 
-  }
+//   }
 
-  function updateParticle( i ) {
+//   function updateParticle( i ) {
 
-    // Update lifecycle.
+//     // Update lifecycle.
 
-    ages[ i ] += 0.005;
+//     ages[ i ] += 0.005;
 
-    if ( ages[ i ] >= 1 ) {
+//     if ( ages[ i ] >= 1 ) {
 
-      ages[ i ] = 0.001;
-      scales[ i ] = scaleCurve( ages[ i ] );
+//       ages[ i ] = 0.001;
+//       scales[ i ] = scaleCurve( ages[ i ] );
 
-      resampleParticle( i );
+//       resampleParticle( i );
 
-      return;
+//       return;
 
-    }
+//     }
 
-    // Update scale.
+//     // Update scale.
 
-    const prevScale = scales[ i ];
-    scales[ i ] = scaleCurve( ages[ i ] );
-    _scale.set( scales[ i ] / prevScale, scales[ i ] / prevScale, scales[ i ] / prevScale );
+//     const prevScale = scales[ i ];
+//     scales[ i ] = scaleCurve( ages[ i ] );
+//     _scale.set( scales[ i ] / prevScale, scales[ i ] / prevScale, scales[ i ] / prevScale );
 
-    // Update transform.
+//     // Update transform.
 
-    stemMesh.getMatrixAt( i, dummy.matrix );
-    dummy.matrix.scale( _scale );
-    stemMesh.setMatrixAt( i, dummy.matrix );
-    blossomMesh.setMatrixAt( i, dummy.matrix );
+//     stemMesh.getMatrixAt( i, dummy.matrix );
+//     dummy.matrix.scale( _scale );
+//     stemMesh.setMatrixAt( i, dummy.matrix );
+//     blossomMesh.setMatrixAt( i, dummy.matrix );
 
-  }
+//   }
 
 
 
