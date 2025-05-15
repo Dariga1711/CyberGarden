@@ -730,7 +730,7 @@ blossomMaterial.envMapIntensity = 0.9;
     stemMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     blossomMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
   
-    resample();
+    // resample();
     init();
   });
   
