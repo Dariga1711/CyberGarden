@@ -639,6 +639,11 @@ button.addEventListener('click', () => {
 //     return ( -- t ) * t * t + 1;
 
 //   };
+  // count: 10000,
+  // distribution: 'random',
+  // resample: resample,
+  // surfaceColor: 0xFFF784,
+  // backgroundColor: 0xE39469,
 
 //   // Scaling curve causes particles to grow quickly, ease gradually into full scale, then
 //   // disappear quickly. More of the particle's lifetime is spent around full scale.
