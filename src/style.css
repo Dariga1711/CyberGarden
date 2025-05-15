@@ -229,6 +229,7 @@ body
   font-style: normal;
   justify-content: center;
   align-items: center;
+  border-left: 1px solid #3c3c3c;
   padding-left:20px;;
   width: 30%;
   text-align: center;
