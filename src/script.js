@@ -637,7 +637,7 @@ let stats
 
 const api = {
 
-  count: 20000,
+  count: 10000,
   distribution: 'random',
   resample: resample,
   surfaceColor: 0xFFF784,
