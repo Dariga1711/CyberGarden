@@ -920,7 +920,7 @@ font-size: 18px;
   }
   
   #containerLeft, #containerRight {
-    flex: 1; /* equal width */
+    flex: 1; 
     max-width: 50%;
     overflow-wrap: break-word;
     
@@ -930,18 +930,20 @@ font-size: 18px;
 
   #containerRight {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+ 
   }
 
   #containerTop {
     display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    gap: 10px;
+    justify-content: space-between; 
+    align-items: center;           
     margin-bottom: 20px;
-    
   }
+  
+  
+  
   #projectName{
     font-family: "Cormorant Garamond", serif;
     font-optical-sizing: auto;
@@ -949,6 +951,7 @@ font-size: 18px;
     font-style: normal;
       padding: 0px;
       font-size: 50px;
+      margin: 0;
   }
   #name{
     background:transparent;
@@ -1051,10 +1054,9 @@ font-size: 18px;
     border-radius: 10px; }
 
     #closeInfo{
-    margin: 5px;
-    margin-top:30px;
+    margin: 0px;
     display: inline-block;
-    padding: 4px 50px;
+    padding: 4px 10px;
     font-family: "Cormorant Garamond", serif;
     font-optical-sizing: auto;
     font-weight: 300;
