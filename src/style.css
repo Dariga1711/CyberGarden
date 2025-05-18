@@ -905,6 +905,9 @@ font-size: 18px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     width: 60vw;
+   
+    max-height: 70vh;
+  overflow-y: auto;
     color:rgba(117, 143, 211);
     
   }
@@ -932,6 +935,7 @@ font-size: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 100%;
  
   }
 
@@ -1190,8 +1194,13 @@ font-size: 18px;
       }
     
       #currentImage {
-        max-width: 100%;
+        display: block;
+        max-height: 100vh; /* Full viewport height */
+        width: auto;
         height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+        border-radius: 10px;
       }
 
 
