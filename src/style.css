@@ -1075,4 +1075,155 @@ font-size: 18px;
     }
 
 
+    /* Mobile */
+
+    @media (max-width: 768px) {
+      /* Hide logo */
+      #logo {
+        display: none;
+      }
     
+      /* Keep buttons in one row but smaller */
+      #header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+    
+      #headerButtons {
+        flex-direction: row; /* keep them inline */
+        gap: 5px;
+        flex-wrap: wrap; /* wrap if needed on smaller widths */
+      }
+    
+      #aboutButton,
+      #instructionButton,
+      #audioButton {
+        font-size: 14px;
+        padding: 5px 10px;
+      }
+    
+      /* Search bar below buttons */
+      #searchWrapper {
+        margin-top: 10px;
+        width: 100%;
+        align-items: flex-start;
+      }
+    
+      #keywordSearch {
+        width: 100%;
+        font-size: 16px;
+      }
+    
+      #searchButton {
+        font-size: 14px;
+        padding: 5px 15px;
+      }
+    
+      /* Keep active keywords visible and clean */
+      #activeKeywords {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-top: 10px;
+        margin-left: 0;
+      }
+    
+      .top-tag-pill {
+        font-size: 14px;
+        padding: 4px 10px;
+      }
+
+      #welcomeFlex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    
+      #welcomeFlexLeft,
+      #welcomeFlexRight {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+      }
+
+      #containerFlexBox {
+        flex-direction: column;
+        gap: 20px;
+      }
+    
+      #containerLeft,
+      #containerRight {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
+    
+      #containerRight {
+        padding-top: 10px;
+      }
+    
+      #projectLink {
+        width: 100%;
+      }
+    
+      #currentImage {
+        max-width: 100%;
+        height: auto;
+      }
+
+
+      #modal {
+        width: 90vw;
+        padding: 20px;
+        flex-direction: column;
+      }
+    
+      #modalForm {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      #flexBox {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #modalFormLeft,
+      #modalFormRight {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+    
+      #modalFormRight {
+        border-left: none;
+        padding-top: 20px;
+      }
+    
+      #imagePreview {
+        max-width: 100%;
+        height: auto;
+      }
+    
+      #flowerInputImage {
+        margin: 10px auto;
+      }
+    
+      #buttonContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        padding-top: 10px;
+      }
+    
+      .submit-btn,
+      .close-btn {
+        width: 100%;
+      }
+    }
