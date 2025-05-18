@@ -1083,41 +1083,37 @@ font-size: 18px;
         display: none;
       }
     
-      /* Keep buttons in one row but smaller */
       #header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
       }
     
-      #headerButtons {
-        flex-direction: row; /* keep them inline */
+      #headerButtons,
+      #searchWrapper {
+        display: flex;
+        flex-wrap: wrap;
         gap: 5px;
-        flex-wrap: wrap; /* wrap if needed on smaller widths */
       }
     
       #aboutButton,
       #instructionButton,
-      #audioButton {
+      #audioButton,
+      #searchButton {
         font-size: 14px;
         padding: 5px 10px;
       }
     
-      /* Search bar below buttons */
-      #searchWrapper {
-        margin-top: 10px;
-        width: 100%;
-        align-items: flex-start;
-      }
-    
       #keywordSearch {
-        width: 100%;
-        font-size: 16px;
+        font-size: 14px;
+        padding: 5px;
+        width: 100px;
       }
     
-      #searchButton {
-        font-size: 14px;
-        padding: 5px 15px;
+      #searchWrapper {
+        flex: 1;
+        justify-content: flex-end;
       }
     
       /* Keep active keywords visible and clean */
@@ -1134,17 +1130,42 @@ font-size: 18px;
         padding: 4px 10px;
       }
 
+      #welcomePopup {
+        max-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 20px;
+        width: 100vw;
+        box-sizing: border-box;
+      }
+    
+      #welcomeContent {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+    
       #welcomeFlex {
         flex-direction: column;
-        align-items: center;
         gap: 20px;
+        width: 100%;
       }
     
       #welcomeFlexLeft,
       #welcomeFlexRight {
         width: 100%;
         max-width: 100%;
+        box-sizing: border-box;
         text-align: center;
+      }
+    
+      #welcomeFlex img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
       }
 
       #containerFlexBox {
