@@ -838,6 +838,15 @@ window.addEventListener('mousemove', (event) =>
   mouse.y= - (event.clientY / sizes.height) * 2 + 1
 })
 
+window.addEventListener('touchstart', (event) => {
+  if (event.touches.length > 0) {
+    const touch = event.touches[0];
+    mouse.x = (touch.clientX / sizes.width) * 2 - 1;
+    mouse.y = - (touch.clientY / sizes.height) * 2 + 1;
+  }
+});
+
+
 const container = document.querySelector(".container");
 // console.log(container)
 
