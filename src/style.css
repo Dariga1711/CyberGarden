@@ -1147,47 +1147,39 @@ font-size: 18px;
   }
 
   /* Welcome Popup responsive scaling */
-  #welcomePopup {
-    padding: 3vw;
-    max-height: 100vh;
-    overflow-y: auto;
-  }
-
   #welcomeContent {
-    width: 70vw;
-    padding: 5vw;
+    width: 90vw;
+    max-width: 100vw;
+    padding: 6vw;
     box-sizing: border-box;
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
-
+  
   #welcomeHeading {
-    font-size: 5vw;
-    padding-bottom: 2vw;
+    font-size: 4vw;
+    padding-bottom: 1vw;
   }
-
+  
   #welcomep1,
   #welcomeP {
-    font-size: 3.5vw;
+    font-size: 2.8vw;
     max-width: 100%;
   }
-
+  
   #welcomeFlex {
     flex-direction: column;
-    gap: 4vw;
-    padding-top: 4vw;
+    gap: 3vw;
+    padding-top: 3vw;
   }
-
-  #welcomeFlexLeft,
-  #welcomeFlexRight {
-    width: 100%;
-    padding: 2vw 0;
-  }
-
+  
   #welcomeFlex img {
-    width: 80%;
+    width: 60vw;
+    max-height: 25vh;
     height: auto;
-    max-height: 30vh;
+    object-fit: contain;
+    display: block;
   }
+  
 
   /* About Popup responsive scaling */
   #aboutPopup {
@@ -1195,8 +1187,8 @@ font-size: 18px;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
-    display: flex;
+    height: 100dvh;
+    display: none;
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.2);
@@ -1205,12 +1197,15 @@ font-size: 18px;
     z-index: 9999;
     padding: 3vw;
     box-sizing: border-box;
+
   }
   
   .popup-content {
     flex-direction: column;
     padding: 5vw;
     max-width: 90vw;
+    max-height: 90dvh;
+    overflow-y: auto;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -1219,11 +1214,7 @@ font-size: 18px;
     margin: 0 auto;
   }
   
-  #aboutHeading {
-    font-size: 5vw;
-    margin-bottom: 2vw;
-  }
-  
+
   #aboutPopupLeft,
   #aboutPopupRight {
     max-width: 100%;
@@ -1239,14 +1230,23 @@ font-size: 18px;
     border-left: none;
     padding-top: 4vw;
   }
+
+  #aboutHeading {
+    font-size: 5vw !important;
+    text-align: center;
+  }
+
+
+
   
   #aboutPopupRight p,
   #aboutPopupLeft p {
-    font-size: 3.5vw;
+    font-size: 3vw;
     line-height: 1.4;
     max-width: 100%;
   }
   
+
   #plantSmth {
     max-width: 100%;
     align-self: center;
