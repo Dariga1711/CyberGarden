@@ -1191,14 +1191,22 @@ font-size: 18px;
 
   /* About Popup responsive scaling */
   #aboutPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
     padding: 3vw;
-    max-height: 100vh;
-    overflow-y: auto;
+    box-sizing: border-box;
   }
-
+  
   .popup-content {
     flex-direction: column;
     padding: 5vw;
@@ -1207,50 +1215,43 @@ font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: 0 auto;
   }
-
+  
   #aboutHeading {
     font-size: 5vw;
     margin-bottom: 2vw;
   }
-
+  
   #aboutPopupLeft,
   #aboutPopupRight {
     max-width: 100%;
     width: 100%;
     padding: 2vw 0;
-   
-    display: flex;            
-flex-direction: column;
-align-items: center;     
-text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
-  #aboutPopupRight{
-    border-top:1px solid #333;
-   
-  }
-
+  
   #aboutPopupRight {
     border-left: none;
     padding-top: 4vw;
-   
-
   }
-
+  
   #aboutPopupRight p,
   #aboutPopupLeft p {
-    font-size: 3 vw;
+    font-size: 3.5vw;
     line-height: 1.4;
     max-width: 100%;
   }
-
+  
   #plantSmth {
     max-width: 100%;
     align-self: center;
   }
-
+  
   
   #containerFlexBox {
     flex-direction: column;
