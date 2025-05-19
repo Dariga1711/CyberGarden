@@ -896,6 +896,41 @@ keywords.forEach(keyword => {
   }
 });
 
+window.addEventListener('touchend', () => {
+  raycaster.setFromCamera(mouse, camera);
+  const hits = raycaster.intersectObjects(flowerInstances, true);
+  if (hits.length > 0) {
+    const picked = hits[0].object;
+
+    let parent = picked;
+    while (parent && !parent.info && parent.parent) {
+      parent = parent.parent;
+    }
+
+    if (parent && parent.info) {
+      const info = parent.info;
+      document.getElementById("projectName").innerText = info.projectName;
+      document.getElementById("name").innerText = info.name || "Unnamed";
+      document.getElementById("descriptionText").innerText = info.description || "";
+      document.getElementById("projectLink").href = info.link || "#";
+      document.getElementById("currentImage").src = info.image || "";
+
+      const keywordsContainer = document.getElementById("keywordsContainer");
+      keywordsContainer.innerHTML = "";
+
+      const keywords = (info.keyWord || "").split(",").map(k => k.trim()).filter(k => k !== "");
+
+      keywords.forEach(keyword => {
+        const span = document.createElement("span");
+        span.className = "keyword-box";
+        span.innerText = keyword;
+        keywordsContainer.appendChild(span);
+      });
+
+      container.style.display = "block";
+    }
+  }
+});
 
 
 document.getElementById("closeInfo").addEventListener("click", () => {
