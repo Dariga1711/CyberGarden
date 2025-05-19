@@ -1079,191 +1079,269 @@ font-size: 18px;
     }
 
 
-    /* Mobile */
+    /* Mobile CSS */
 
-    @media (max-width: 768px) {
-      /* Hide logo */
-      #logo {
-        display: none;
-      }
-    
-      #header {
-        flex-direction: row;
-        align-items: center;
-        gap: 10px;
-      }
-    
-      #headerButtons,
-      #searchWrapper {
-        display: flex;
-        gap: 5px;
-      }
-    
-      #aboutButton,
-      #instructionButton,
-      #audioButton,
-      #searchButton {
-        font-size: 14px;
-        padding: 5px 10px;
-      }
-    
-      #keywordSearch {
-        font-size: 14px;
-        padding: 5px;
-        width: 100px;
-      }
-    
-      #searchWrapper {
-        flex: 1;
-        justify-content: flex-end;
-      }
-    
-      
-      #activeKeywords {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5em;
-        margin-top: 10px;
-        margin-left: 0;
-      }
-    
-      .top-tag-pill {
-        font-size: 12px;
-        padding: 4px 10px;
-      }
+@media (max-width: 768px) {
+  /* Hide logo */
+  #logo {
+    display: none;
+  }
 
-      #welcomePopup {
-        max-height: 80vh;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding: 20px;
-        width: 100vw;
-        box-sizing: border-box;
-      }
-    
-      #welcomeContent {
-        width: 100%;
-        max-width: 100%;
-        max-height: 80vh;
-        padding: 20px;
-        box-sizing: border-box;
-        margin: 0 auto;
-      }
-    
-      #welcomeFlex {
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-      }
-    
-      #welcomeFlexLeft,
-      #welcomeFlexRight {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-      }
-    
-      #welcomeFlex img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
+  #header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+  }
 
-      #containerFlexBox {
-        flex-direction: column;
-        gap: 20px;
-      }
-    
-      #containerLeft,
-      #containerRight {
-        max-width: 100%;
-        width: 100%;
-        text-align: center;
-        align-items: center;
-      }
-    
-      #containerRight {
-        padding-top: 10px;
-      }
-    
-      #projectLink {
-        width: 100%;
-      }
-    
-      #currentImage {
-        display: block;
-        max-height: 100vh; 
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        margin: 0 auto;
-        border-radius: 10px;
-      }
+  #searchWrapper {
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 
+  #headerButtons {
+    flex: none;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 
-      #modal {
-        width: 90vw;
-        padding: 20px;
-        flex-direction: column;
-      }
-    
-      #modalForm {
-        flex-direction: column;
-        align-items: center;
-      }
-    
-      #flexBox {
-        flex-direction: column;
-        align-items: center;
-      }
+  #aboutButton,
+  #instructionButton,
+  #audioButton,
+  #searchButton {
+    font-size: 14px;
+    padding: 0 15px;
+    height: 36px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-      #modalFormLeft,
-      #modalFormRight {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-      }
-    
-      #modalFormRight {
-        border-left: none;
-        padding-top: 20px;
-      }
-    
-      #imagePreview {
-        max-width: 100%;
-        height: auto;
-      }
-    
-      #flowerInputImage {
-        margin: 10px auto;
-      }
-    
-      #buttonContainer {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        align-items: center;
-        padding-top: 10px;
-      }
-    
-      .submit-btn,
-      .close-btn {
-        width: 100%;
-      }
+  #keywordSearch {
+    font-size: 14px;
+    height: 36px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-      #addFlowerButton {
-        left: 50%;
-        bottom: 20px;
-        transform: translateX(-50%);
-        padding: 12px 30px; /* Slightly adjust padding if needed */
-        font-size: 16px; /* Adjust font size for better visibility */
-        max-width: 90%; /* Ensures it doesn't overflow the screen width */
-        box-sizing: border-box;
-      }
+  #activeKeywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 10px;
+    margin-left: 0;
+  }
 
-    }
+  .top-tag-pill {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  /* Welcome Popup responsive scaling */
+  #welcomePopup {
+    padding: 3vw;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  #welcomeContent {
+    width: 70vw;
+    padding: 5vw;
+    box-sizing: border-box;
+    font-size: 3.5vw;
+  }
+
+  #welcomeHeading {
+    font-size: 5vw;
+    padding-bottom: 2vw;
+  }
+
+  #welcomep1,
+  #welcomeP {
+    font-size: 3.5vw;
+    max-width: 100%;
+  }
+
+  #welcomeFlex {
+    flex-direction: column;
+    gap: 4vw;
+    padding-top: 4vw;
+  }
+
+  #welcomeFlexLeft,
+  #welcomeFlexRight {
+    width: 100%;
+    padding: 2vw 0;
+  }
+
+  #welcomeFlex img {
+    width: 80%;
+    height: auto;
+    max-height: 30vh;
+  }
+
+  /* About Popup responsive scaling */
+  #aboutPopup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3vw;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .popup-content {
+    flex-direction: column;
+    padding: 5vw;
+    max-width: 90vw;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  #aboutHeading {
+    font-size: 5vw;
+    margin-bottom: 2vw;
+  }
+
+  #aboutPopupLeft,
+  #aboutPopupRight {
+    max-width: 100%;
+    width: 100%;
+    padding: 2vw 0;
+   
+    display: flex;            
+flex-direction: column;
+align-items: center;     
+text-align: center;
+  }
+
+  #aboutPopupRight{
+    border-top:1px solid #333;
+   
+  }
+
+  #aboutPopupRight {
+    border-left: none;
+    padding-top: 4vw;
+   
+
+  }
+
+  #aboutPopupRight p,
+  #aboutPopupLeft p {
+    font-size: 3 vw;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+
+  #plantSmth {
+    max-width: 100%;
+    align-self: center;
+  }
+
+  
+  #containerFlexBox {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #containerLeft,
+  #containerRight {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  #containerRight {
+    padding-top: 10px;
+  }
+
+  #projectLink {
+    margin-top: 3vh;
+    width: 70%;
+  }
+
+  #currentImage {
+    display: block;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  /* Modal responsive adjustments */
+  #modal {
+    width: 90vw;
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  #modalForm,
+  #flexBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #modalFormLeft,
+  #modalFormRight {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  #modalFormRight {
+    border-left: none;
+    padding-top: 20px;
+  }
+
+  #imagePreview {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #flowerInputImage {
+    margin: 10px auto;
+  }
+
+  #buttonContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .submit-btn,
+  .close-btn {
+    width: 100%;
+  }
+
+  /* Add Flower Button centering */
+  #addFlowerButton {
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    padding: 12px 30px;
+    font-size: 16px;
+    max-width: 90%;
+    box-sizing: border-box;
+  }
+}
