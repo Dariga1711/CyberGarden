@@ -215,7 +215,7 @@ addFlowerButton.addEventListener("click", function () {
 
 //Retriving data from firebase 
 var name = document.getElementById("name"); 
-var projectName = document.getElementById("projectName");
+// var projectName = document.getElementById("projectName");
 var descriptionText = document.getElementById("descriptionText");
 var buttonLink = document.getElementById("buttonLink");
 var keyWord = document.getElementById("keyWord");
@@ -224,22 +224,22 @@ var keyWord = document.getElementById("keyWord");
 // name.innerText = "Dariga";
 // name.innerHTML = "<img src='https://cdn.glitch.global/836a0c25-8e0a-479c-8ed2-3b72bdbd56b0/raspberry-pi-zero-5.png?v=1741705068745' style='width:2vw'>"
 
-const querySnapshot = getDocs(collection(db, "visitors"))
-  .then(querySnapshot => {
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(doc.id, " => ", doc.data());
-      var docData = doc.data();
-      // console.log("the date added is: ", docData["createdAt"]);
-      // console.log("the description is: ", docData["description"]);
-      // console.log("the key word is: ", docData["keyWord"]);
-      projectName.innerText = docData["projectName"];
-      name.innerText = docData["name"];
-      descriptionText.innerText = docData["description"];
-      buttonLink.href = docData["link"];
-      keyWord.innerText = docData["keyWord"];
-    });
-  });
+// const querySnapshot = getDocs(collection(db, "visitors"))
+//   .then(querySnapshot => {
+//     querySnapshot.forEach((doc) => {
+//       // doc.data() is never undefined for query doc snapshots
+//       // console.log(doc.id, " => ", doc.data());
+//       var docData = doc.data();
+//       // console.log("the date added is: ", docData["createdAt"]);
+//       // console.log("the description is: ", docData["description"]);
+//       // console.log("the key word is: ", docData["keyWord"]);
+//       projectName.innerText = docData["projectName"];
+//       name.innerText = docData["name"];
+//       descriptionText.innerText = docData["description"];
+//       buttonLink.href = docData["link"];
+//       keyWord.innerText = docData["keyWord"];
+//     });
+//   });
 
 /**
  * Base
@@ -515,6 +515,10 @@ function placeFlower(position, shouldSave, type = 'apple', color = '#E8D9EF', in
   });
 }
 
+document.getElementById('aboutPopup').onclick = (e) => {
+  e.stopPropagation();
+  console.log('test');
+}
 
 async function loadStoredFlowersFirebase() {
   const querySnapshot = await getDocs(collection(db, "visitors"));
@@ -528,7 +532,7 @@ async function loadStoredFlowersFirebase() {
     const color = data.flower?.color || '#E8D9EF';
 
     const info = {
-      projectName: projectName,
+      projectName: data.projectName,
       name: data.name,
       description: data.description,
       keyWord: data.keyWord,
@@ -852,8 +856,10 @@ window.addEventListener('click', () => {
 
     if (parent && parent.info) {
       const info = parent.info;
+      console.log(info);
       // console.log("INFO FOUND:", info);
 
+      document.getElementById("projectName").innerText = info.projectName;
       document.getElementById("name").innerText = info.name || "Unnamed";
       document.getElementById("descriptionText").innerText = info.description || "";
       document.getElementById("projectLink").href = info.link || "#";
