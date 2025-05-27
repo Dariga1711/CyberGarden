@@ -555,7 +555,20 @@ font-size: 18px;
   flex-direction: column;
   gap: 8px;
   margin-top: 20px;
+  max-height:70vh; /* or whatever fits your layout */
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
+
+#topTagsList::-webkit-scrollbar {
+  width: 6px;
+}
+
+#topTagsList::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 10px;
+}
+
 
 .top-tag-pill {
   cursor: pointer;
@@ -771,6 +784,42 @@ font-size: 18px;
   #flowerColor::-webkit-color-swatch {
     border-radius: 50%;
   }
+  
+
+  .flowerTypeColorRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .flowerTypeBlock,
+  .flowerColorBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between label and input */
+  }
+  
+  .flowerColorBlock label,
+  .flowerTypeBlock label {
+    font-size: 16px;
+    font-family: "Cormorant Garamond", serif;
+  }
+  
+  .flowerColorBlock input[type="color"] {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #3c3c3c;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  
   
   
   
