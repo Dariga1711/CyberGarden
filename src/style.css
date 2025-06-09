@@ -1135,8 +1135,12 @@ font-size: 18px;
   #mobileWarning {
     display: none; 
   }
+
+  #welcomePopup {
+    display: none !important;
+  }
   
-  @media (max-width: 768px) {
+ 
     #mobileWarning {
       position: fixed;
       top: 0;
@@ -1161,7 +1165,7 @@ font-size: 18px;
     body, html {
       overflow: hidden;
     }
-  }
+
   
   /* Hide logo
   #logo {
