@@ -149,7 +149,12 @@ form.addEventListener("submit", async (event) => {
   const inputName = document.getElementById("flowerInputName").value;
   const projectInputName = document.getElementById("flowerProjectInputName").value
   const inputImage = document.getElementById("flowerInputImage").files[0];
-  const imageDataUrl = await resizeAndConvertToDataUrl(inputImage, 800);
+let imageDataUrl = "";
+
+if (inputImage) {
+  imageDataUrl = await resizeAndConvertToDataUrl(inputImage, 800);
+}
+
   const inputDescription = document.getElementById("flowerInputDescription").value;
   const inputKeyWord = document.getElementById("flowerInputKeyword").value;
   const inputLink = document.getElementById("flowerInputLink").value;
