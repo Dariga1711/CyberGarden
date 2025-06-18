@@ -510,6 +510,31 @@ font-size: 18px;
   }
 }
 
+#clearTagsButton {
+  padding: 5px 30px;
+  font-size: 18px;
+  background-color: transparent;
+  color: rgb(60, 60, 60);
+  border: 1px solid rgb(60, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media (prefers-reduced-motion: no-preference) {
+    #clearTagsButton:hover .btnTextGroup {
+      transform: translateY(-1em);
+    }
+  }
+}
+
 
 
 

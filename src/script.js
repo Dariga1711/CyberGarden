@@ -1138,6 +1138,24 @@ if (temporaryFlower) {
 
   updateFlowers(camera.position);
 
+// Flowers moves with camera
+
+  if (temporaryFlower) {
+    const direction = new THREE.Vector3();
+    camera.getWorldDirection(direction);
+  
+    const left = new THREE.Vector3();
+    left.crossVectors(camera.up, direction).normalize();
+  
+    const newPosition = new THREE.Vector3();
+    newPosition.copy(camera.position)
+      .add(direction.multiplyScalar(3)) // distance in front
+      .add(left.multiplyScalar(2.5));   // slight offset to the left
+  
+    newPosition.y = 0;
+    temporaryFlower.position.copy(newPosition);
+  }
+  
 
  
   // Timer
@@ -1430,7 +1448,14 @@ async function showTopTags() {
   });
 }
 
-showTopTags(); // load and display most used tags
+showTopTags(); 
+
+document.getElementById("clearTagsButton").addEventListener("click", async () => {
+  const tagContainer = document.getElementById("activeKeywords");
+  tagContainer.innerHTML = "";
+  await runKeywordFilter(); // reset flower display
+});
+
 
 document.getElementById("projectLink").addEventListener("click", (e) => {
   e.preventDefault(); // Disable link navigation
