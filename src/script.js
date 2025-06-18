@@ -1431,3 +1431,8 @@ async function showTopTags() {
 }
 
 showTopTags(); // load and display most used tags
+
+document.getElementById("projectLink").addEventListener("click", (e) => {
+  e.preventDefault(); // Disable link navigation
+  alert("Link access is disabled during the graduate show. Sorry :( "); 
+});
