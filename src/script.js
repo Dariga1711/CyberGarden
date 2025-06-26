@@ -1455,9 +1455,3 @@ document.getElementById("clearTagsButton").addEventListener("click", async () =>
   tagContainer.innerHTML = "";
   await runKeywordFilter(); // reset flower display
 });
-
-
-document.getElementById("projectLink").addEventListener("click", (e) => {
-  e.preventDefault(); // Disable link navigation
-  alert("Link access is disabled during the graduate show. Sorry :( "); 
-});
