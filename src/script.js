@@ -1429,7 +1429,7 @@ async function showTopTags() {
   // Get top 10 tags
   const topTags = Object.entries(tagCounts)
     .sort((a, b) => b[1] - a[1]) // sort descending
-    .slice(0, 50);
+    .slice(0, 100);
 
   const tagContainer = document.getElementById("topTagsList");
   tagContainer.innerHTML = ""; // clear previous tags
