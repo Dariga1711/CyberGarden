@@ -24,6 +24,10 @@ import {
 } from "firebase/firestore";
 import { mx_bilerp_0 } from 'three/src/nodes/materialx/lib/mx_noise.js';
 
+import { getAnalytics, logEvent } from "firebase/analytics";
+
+const analytics = getAnalytics(app);
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
